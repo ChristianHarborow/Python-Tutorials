@@ -1,3 +1,14 @@
+"""
+    Football Statistics Calculator
+
+    Calculates the number of wins, draws, losses and points earned by a team
+    from the entered number of goals scored and conceded in numerous matches
+"""
+
+__author__ = "Christian Harborow"
+__email__ = "u1856364@unimail.hud.ac.uk"
+__date__ = "12/11/2018"
+
 wins = 0
 draws = 0
 losses = 0
