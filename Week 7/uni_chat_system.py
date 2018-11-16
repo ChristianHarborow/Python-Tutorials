@@ -14,7 +14,13 @@ def check_domain(email, domain):
 def email_username(email):
     return email[:email.find("@")]
 
+
+def find_word(question, word):
+    return word in question
+
+
 operator_names = ["Dave", "John", "Sarah", "Abbey"]
+answers = ["Maybe", "Quite possibly", "I am unsure", "I will look into that"]
 uni_domain = "pop.ac.uk"
 user_email = input("Enter your email address: ")
 if not check_domain(user_email, uni_domain):
@@ -23,4 +29,20 @@ else:
     print("Email valid")
     print("You have been connected to", random.choice(operator_names))
     username = email_username(user_email)
-    print("Hi", username + ", how can I help you?")
+    print("Hi", username)
+    while True:
+        response = input("How can I help you?: ").lower()
+        if find_word(response, "goodbye"):
+            print("Stopping client")
+            break
+        elif find_word(response, "library"):
+            print("The library is closed today")
+        elif find_word(response, "wifi"):
+            print("WiFi is excellent across campus")
+        elif find_word(response, "deadline"):
+            print("Your deadline has been extended by two working days")
+        else:
+            print(random.choice(answers))
+        if random.random() < 0.15:
+            print("Lost connection to server, stopping client")
+            break
