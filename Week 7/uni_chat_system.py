@@ -8,7 +8,7 @@ import random
 
 __author__ = "Christian Harborow"
 __email__  = "u1856364@unimail.hud.ac.uk"
-__date__   = "19/11/2018"
+__date__   = "20/11/2018"
 
 
 def check_domain(email, domain):
@@ -29,8 +29,14 @@ def find_word(question, word):
     return word in question
 
 
-operator_names = ["Dave", "John", "Sarah", "Abbey"]
-answers = ["Maybe", "Quite possibly", "I am unsure", "I will look into that"]
+def random_name():
+    return random.choice(["Dave", "John", "Sarah", "Abbey"])
+
+
+def random_answer():
+    return random.choice(["Maybe", "Quite possibly", "I am unsure", "I will look into that"])
+
+
 uni_domain = "pop.ac.uk"
 print("Welcome to the University of Poppleton's student support chat")
 user_email = input("Please enter your email address: ").lower()
@@ -39,7 +45,7 @@ if not check_domain(user_email, uni_domain):
     print("Not a valid university email address, stopping client")
 else:
     print("Email address valid")
-    print("You have been connected to", random.choice(operator_names))
+    print("You have been connected to", random_name())
     username = email_username(user_email)
     while True:
         response = input("What do you need help with " + username + "?: ").lower()
@@ -53,7 +59,7 @@ else:
         elif find_word(response, "deadline"):
             print("Your deadline has been extended by two working days")
         else:
-            print(random.choice(answers))
+            print(random_answer())
         if random.random() < 0.15:
             print("Lost connection to server, stopping client")
             break
