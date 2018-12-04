@@ -12,11 +12,7 @@ __date__   = "20/11/2018"
 
 
 def check_domain(email, domain):
-    if email.count("@") != 1:
-        return False
-    if email[0] == "@":
-        return False
-    if email[email.find("@") + 1:] == domain:
+    if email.count("@") == 1 and email[0] != "@" and email[email.find("@") + 1:] == domain:
         return True
     return False
 
